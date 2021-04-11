@@ -35,7 +35,7 @@ class App extends React.Component {
               id: snapShot.id,
               ...snapShot.data()
             }
-          }, () => console.log(this.state));
+          });
         });
       }
       this.setState({ currentUser: userAuth }); //If user is not signed in or was signed out userAuth will be null, so we set currentUser to userAuth (i.e. to null)
