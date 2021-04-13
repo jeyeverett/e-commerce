@@ -16,8 +16,10 @@
         height: 100%;
       }
     }
-  
-    .remove-button {
+
+    .quantity {
+
+      .change-quantity {
         cursor: pointer;
         background: none;
         display: inline-block;
@@ -25,6 +27,26 @@
         text-align: center;
         border: none;
         outline: none;
+
+        &:hover {
+          opacity: .7;
+        }
+      }
+    }
+  
+    .remove-button {
+        cursor: pointer;
+        background: none;
+        display: inline-block;
+        font-size: inherit;
+        font-weight: bolder;
+        text-align: center;
+        border: none;
+        outline: none;
+
+        &:hover {
+          opacity: .7;
+        }
       }
   }
   
