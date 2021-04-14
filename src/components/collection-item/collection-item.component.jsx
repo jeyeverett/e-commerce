@@ -8,10 +8,10 @@ import CustomButton from '../custom-button/custom-button.component';
 
 import './collection-item.styles.scss';
 
-const CollectionItem = ({ item, addItem }) => {
+const CollectionItem = ({ item, addItem, collectionPage }) => {
     const { name, price, imageUrl } = item;
     return (
-        <div className="collection-item">
+        <div className={`collection-item ${collectionPage  ? 'collection-all' : ''}`}>
             <div className="item-image" style={ { backgroundImage: `url(${imageUrl})` } } />
             <div className="item-footer">
                 <span className="name">{ name }</span>

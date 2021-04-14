@@ -7,7 +7,7 @@ import CollectionItem from '../collection-item/collection-item.component';
 
 const CollectionPreview = ({ title, routeName, items, history, match }) => (
     <div className='collection-preview'>
-        <h1 className="title" onClick={() => { history.push(`${match.url}${routeName}`) }}>
+        <h1 className="title" onClick={() => { history.push(`${match.url}/${routeName}`) }}>
             {title.toUpperCase()}
         </h1>
         <div className='preview'>

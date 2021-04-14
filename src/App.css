@@ -12,6 +12,16 @@ body {
     padding: 20px 60px;
 }
 
+body::-webkit-scrollbar{
+    width: 8px;
+    background-color: transparent;
+}
+ 
+body::-webkit-scrollbar-thumb{
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 20px;
+}
+
 a {
     text-decoration: none;
     color: black;
