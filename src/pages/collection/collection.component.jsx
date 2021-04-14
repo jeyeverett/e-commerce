@@ -14,7 +14,7 @@ const CollectionPage = ({ collection }) => {
          return (
             <div className='collection-page'>
                 <h1 className="title">
-                    {collection.title}
+                    {collection.title.toUpperCase()}
                 </h1>
                 <div className='collection'>
                     {
