@@ -7,24 +7,24 @@ import { selectCollection } from '../../redux/shop/shop.selector';
 //Components
 import CollectionItem from '../../components/collection-item/collection-item.component';
 
-import './collection.styles.scss';
+import { CollectionPageContainer, CollectionContainer } from './collection.styles';
 
 const CollectionPage = ({ collection }) => {
     if (collection) {
          return (
-            <div className='collection-page'>
+            <CollectionPageContainer>
                 <h1 className="title">
                     {collection.title.toUpperCase()}
                 </h1>
-                <div className='collection'>
+                <CollectionContainer>
                     {
                         collection.items
                             .map((item) => (
                                 <CollectionItem key={item.id} item={item} collectionPage />
                             ))
                     }
-                </div>
-            </div>
+                </CollectionContainer>
+            </CollectionPageContainer>
         ) 
     } else {
         return (

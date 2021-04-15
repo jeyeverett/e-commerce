@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './checkout.styles.scss';
+import { CheckoutContainer, EmptyCheckout, CheckoutHeader, CheckoutTotal, TestWarning } from './checkout.styles';
 
 //Redux
 import { connect } from 'react-redux'
@@ -12,42 +12,32 @@ import CheckoutItem from '../../components/checkout-item/checkout-item.component
 import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component';
 
 const CheckoutPage = ({ cartItems, cartTotal }) => (
-    <div className="checkout-page">
-        <div className="checkout-header">
-            <div className="header-block">
-                <span>Product</span>
-            </div>
-            <div className="header-block">
-                <span>Description</span>
-            </div>
-            <div className="header-block">
-                <span>Quantity</span>
-            </div>
-            <div className="header-block">
-                <span>Price</span>
-            </div>
-            <div className="header-block">
-                <span>Remove</span>
-            </div>
-        </div>
+    <CheckoutContainer>
+        <CheckoutHeader>
+            <span>Product</span>
+            <span>Description</span>
+            <span>Quantity</span>
+            <span>Price</span>
+            <span>Remove</span>
+        </CheckoutHeader>
         {
             !cartItems.length ?
-                <span className="checkout-empty">Your cart is empty</span>
+                <EmptyCheckout>Your cart is empty</EmptyCheckout>
             :
             cartItems.map(item => 
                 <CheckoutItem key={item.id} item={item} />
             )
         }
-        <div className="total">
+        <CheckoutTotal>
             <span>TOTAL: ${cartTotal}</span>
-        </div>
+        </CheckoutTotal>
         <StripeCheckoutButton price={cartTotal} />
-        <div className="test-warning">
+        <TestWarning>
             *Please use the following test credit card for payments*
             <br/>
             4242 4242 4242 4242 - EXP: 06/15 - CVC: 852
-        </div>
-    </div>
+        </TestWarning>
+    </CheckoutContainer>
 );
 
 const mapStateToProps = createStructuredSelector({
