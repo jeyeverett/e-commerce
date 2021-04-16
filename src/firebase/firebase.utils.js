@@ -39,6 +39,31 @@ export const creatUserProfileDocument = async (userAuth, additionalData) => {
     return userRef;
 }
 
+//We will use this function to get our Shop Data (and whatever else we want) onto Firestore. We call this function in componentDidMount in App.js but we only do it once, and then remove the code after the data is stored in the Firestore (note that "collectionKey" is the name of our collection, and objectsToAdd are the documents we want to add to the collection)
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+    const collectionRef = firestore.collection(collectionKey); //Firestore will create a collection with this key if it doesn't already exist
+
+    const batch = firestore.batch();
+    objectsToAdd.forEach(doc => {
+        const newDocRef = collectionRef.doc();//Get a new document reference and auto create a unique id for it
+        batch.set(newDocRef, doc); //This will create a batch of operations which we execute below
+    });
+
+    return await batch.commit(); //batch.commit executes the batch operation
+}   
+
+export const convertCollectionsSnapshotToMap = snapShot => {
+    const collections = snapShot.docs.map(collection => {
+        const { title } = collection.data();
+        return (
+            {[title.toLowerCase()]: 
+                { ...collection.data(), id: collection.id, routeName: encodeURI(title.toLowerCase()) }}
+        );
+    });
+
+    return collections;
+}
+
 firebase.initializeApp(config);
 
 export const auth = firebase.auth();

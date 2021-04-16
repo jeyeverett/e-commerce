@@ -7,7 +7,7 @@ import { selectCollection } from '../../redux/shop/shop.selector';
 //Components
 import CollectionItem from '../../components/collection-item/collection-item.component';
 
-import { CollectionPageContainer, CollectionContainer } from './collection.styles';
+import { CollectionPageContainer, CollectionContainer, NoCollectionContainer } from './collection.styles';
 
 const CollectionPage = ({ collection }) => {
     if (collection) {
@@ -28,11 +28,11 @@ const CollectionPage = ({ collection }) => {
         ) 
     } else {
         return (
-            <div className="no-collection">
+            <NoCollectionContainer>
                 <h1>
                     This collection does not exist.
                 </h1>
-            </div>
+            </NoCollectionContainer>
         )
     }
   

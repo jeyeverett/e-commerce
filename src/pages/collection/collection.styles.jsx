@@ -21,3 +21,9 @@ export const CollectionContainer = styled.div`
     grid-row-gap: 40px;
 `;
 
+export const NoCollectionContainer = styled.div`
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
