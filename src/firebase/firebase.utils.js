@@ -12,7 +12,7 @@ const config = {
     measurementId: "G-Y7S2K63CEY"
 };
 
-export const creatUserProfileDocument = async (userAuth, additionalData) => {
+export const createUserProfileDocument = async (userAuth, additionalData) => {
     if (!userAuth) return;
 
     const userRef = await firestore.doc(`users/${userAuth.uid}`);
@@ -46,22 +46,36 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
     const batch = firestore.batch();
     objectsToAdd.forEach(doc => {
         const newDocRef = collectionRef.doc();//Get a new document reference and auto create a unique id for it
-        batch.set(newDocRef, doc); //This will create a batch of operations which we execute below
+        batch.set(newDocRef, doc);
     });
 
-    return await batch.commit(); //batch.commit executes the batch operation
+    return await batch.commit();
 }   
 
 export const convertCollectionsSnapshotToMap = snapShot => {
-    const collections = snapShot.docs.map(collection => {
+    let collections = snapShot.docs.map(collection => {
         const { title } = collection.data();
         return (
-            {[title.toLowerCase()]: 
-                { ...collection.data(), id: collection.id, routeName: encodeURI(title.toLowerCase()) }}
+            {[title.toLowerCase()]: { 
+                    ...collection.data(), 
+                    id: collection.id, 
+                    routeName: encodeURI(title.toLowerCase()) 
+            }}
         );
     });
 
+    collections = Object.assign({}, ...collections);
+
     return collections;
+}
+
+export const getCurrentUser = () => {
+    return new Promise((resolve, reject) => {
+        const unsubscribe = auth.onAuthStateChanged(userAuth => {
+            unsubscribe();
+            resolve(userAuth);
+        }, reject);
+    });
 }
 
 firebase.initializeApp(config);
@@ -69,9 +83,9 @@ firebase.initializeApp(config);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: 'select_account' });
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: 'select_account' });
 
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 
 export default firebase;

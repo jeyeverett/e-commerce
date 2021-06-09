@@ -4,6 +4,11 @@ const selectShop = state => state.shop;
 
 const selectCollectionId = (state, props) => props.match.params.collectionId;
 
+export const isShopFetching = createSelector(
+    [selectShop],
+    shop => shop.isFetching
+);
+
 export const selectShopCollections = createSelector(
     [selectShop],
     shop => shop.collections
