@@ -19,14 +19,14 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
     const snapShot = await userRef.get();
 
-    //If the user doesn't exist in the database, create it
     if (!snapShot.exists) {
+        //if we sign in with google we get the display name off the userAuth object, otherwise with email and password we need to manually pass it in as additionalData
         const { displayName, email } = userAuth;
         const createdAt = new Date();
 
         try {
             await userRef.set({
-                displayName,
+                displayName, 
                 email,
                 createdAt,
                 ...additionalData
