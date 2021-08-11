@@ -28,6 +28,12 @@ export const CollectionImage = styled.img`
   ${CollectionItemContainer}:hover & {
     opacity: 0.8;
   }
+  @media screen and (max-width: 800px) {
+    width: 200px;
+  }
+  @media screen and (max-width: 600px) {
+    width: 140px;
+  }
 `;
 
 export const ItemFooterContainer = styled.div`

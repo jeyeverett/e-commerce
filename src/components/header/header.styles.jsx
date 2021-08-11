@@ -25,6 +25,7 @@ export const LogoContainer = styled(Link)`
     svg {
       width: 40px;
     }
+    justify-content: flex-start;
     height: 40px;
     padding-bottom: 5px;
   }
