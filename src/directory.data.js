@@ -2,43 +2,42 @@
 
 const SECTIONS_DATA = [
   {
-      title: 'hats',
-      // imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
-      imageUrl: 'images/hats.png', // local file in public/images/
-      id: 1,
-      linkUrl: 'shop/hats'
-
+    title: 'fruits',
+    imageUrl:
+      'https://res.cloudinary.com/dnpfrwpiq/image/upload/v1628702617/carrotcart/fruits/apple_gysvcs.png',
+    id: 1,
+    linkUrl: 'shop/fruits',
   },
   {
-      title: 'jackets',
-      // imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
-      imageUrl: 'images/jackets.png', // local file in public/images/
-      id: 2,
-      linkUrl: 'shop/jackets'
+    title: 'vegetables',
+    imageUrl:
+      'https://res.cloudinary.com/dnpfrwpiq/image/upload/v1628702616/carrotcart/vegetables/broccoli_s8ysuh.png',
+    id: 2,
+    linkUrl: 'shop/vegetables',
   },
   {
-      title: 'sneakers',
-      // imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
-      imageUrl: 'images/sneakers.png', // local file in public/images/
-      id: 3,
-      linkUrl: 'shop/sneakers'
+    title: 'herbs',
+    imageUrl:
+      'https://res.cloudinary.com/dnpfrwpiq/image/upload/v1628702620/carrotcart/herbs/freshbasil_tkbgja.png',
+    id: 3,
+    linkUrl: 'shop/herbs',
   },
   {
-      title: 'womens',
-      // imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
-      imageUrl: 'images/womens.png', // local file in public/images/
-      size: 'large',
-      id: 4,
-      linkUrl: 'shop/womens'
+    title: 'flowers',
+    imageUrl:
+      'https://res.cloudinary.com/dnpfrwpiq/image/upload/v1628702615/carrotcart/flowers/rainbowflower_k7wivy.png',
+    size: 'large',
+    id: 4,
+    linkUrl: 'shop/flowers',
   },
   {
-      title: 'mens',
-      // imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
-      imageUrl: 'images/men.png', // local file in public/images/
-      size: 'large',
-      id: 5,
-      linkUrl: 'shop/mens'
-  }
+    title: 'baskets',
+    imageUrl:
+      'https://res.cloudinary.com/dnpfrwpiq/image/upload/v1628702618/carrotcart/baskets/bananabasket_c8xwla.png',
+    size: 'large',
+    id: 5,
+    linkUrl: 'shop/baskets',
+  },
 ];
 
 export default SECTIONS_DATA;

@@ -24,6 +24,7 @@ export const CollectionImage = styled.img`
   transition: all 0.2s;
   background-image: url(${getImageUrl});
   cursor: pointer;
+  border-radius: 5%;
 
   ${CollectionItemContainer}:hover & {
     opacity: 0.8;
@@ -42,6 +43,7 @@ export const ItemFooterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 18px;
+  color: white;
   @media screen and (max-width: 800px) {
     margin-bottom: 40px;
   }

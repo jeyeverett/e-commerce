@@ -12,6 +12,7 @@ export const CollectionPreviewContainer = styled.div`
 export const CollectionTitle = styled.h1`
   width: min-content;
   cursor: pointer;
+  color: white;
   @media screen and (max-width: 600px) {
     margin-top: 0;
   }

@@ -10,6 +10,7 @@ export const CollectionPageContainer = styled.div`
     text-align: center;
     margin-top: 15px;
     margin-bottom: 25px;
+    color: white;
   }
 `;
 
