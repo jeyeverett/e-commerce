@@ -5,39 +5,39 @@ const INITIAL_STATE = {
     {
       title: 'fruit',
       imageUrl:
-        'https://res.cloudinary.com/dnpfrwpiq/image/upload/v1628702617/carrotcart/fruits/apple_gysvcs.png',
+        'https://res.cloudinary.com/dnpfrwpiq/image/upload/v1628724939/carrotcart/fruits/fruits_p5patu.jpg',
       id: 1,
-      linkUrl: 'shop/fruits',
+      linkUrl: 'shop/fruit',
+      size: 'large',
     },
     {
       title: 'veggie',
       imageUrl:
-        'https://res.cloudinary.com/dnpfrwpiq/image/upload/v1628702616/carrotcart/vegetables/broccoli_s8ysuh.png',
+        'https://res.cloudinary.com/dnpfrwpiq/image/upload/v1628796800/carrotcart/vegetables/veggies_znkccd.jpg',
       id: 2,
-      linkUrl: 'shop/vegetables',
+      linkUrl: 'shop/veggie',
+      size: 'large',
     },
     {
       title: 'herb',
       imageUrl:
-        'https://res.cloudinary.com/dnpfrwpiq/image/upload/v1628702620/carrotcart/herbs/freshbasil_tkbgja.png',
+        'https://res.cloudinary.com/dnpfrwpiq/image/upload/v1628702614/carrotcart/herbs/mint_qbgoqh.png',
       id: 3,
-      linkUrl: 'shop/herbs',
+      linkUrl: 'shop/herb',
     },
     {
       title: 'floral',
       imageUrl:
         'https://res.cloudinary.com/dnpfrwpiq/image/upload/v1628702615/carrotcart/flowers/rainbowflower_k7wivy.png',
-      size: 'large',
       id: 4,
-      linkUrl: 'shop/flowers',
+      linkUrl: 'shop/floral',
     },
     {
-      title: 'basket',
+      title: 'baskets',
       imageUrl:
         'https://res.cloudinary.com/dnpfrwpiq/image/upload/v1628702618/carrotcart/baskets/bananabasket_c8xwla.png',
-      size: 'large',
       id: 5,
-      linkUrl: 'shop/baskets',
+      linkUrl: 'shop/basket',
     },
   ],
 };

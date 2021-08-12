@@ -10,9 +10,20 @@ export const CollectionPreviewContainer = styled.div`
 `;
 
 export const CollectionTitle = styled.h1`
+  font-family: 'Indie Flower', sans-serif;
+  letter-spacing: 3px;
   width: min-content;
+  margin: 10px 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
   cursor: pointer;
   color: white;
+  transition: all 0.3s;
+
+  :hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
   @media screen and (max-width: 600px) {
     margin-top: 0;
   }

@@ -7,11 +7,13 @@ export const CartDropdownContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  border: 1px solid black;
-  background-color: white;
+  border: 2px solid rgba(105, 100, 48, 0.7);
+  border-radius: 10px;
+  background-color: rgba(188, 152, 106, 0.7);
   top: 90px;
   right: 80px;
   z-index: 5;
+
   @media screen and (max-width: 600px) {
     right: 30px;
   }
@@ -23,6 +25,7 @@ export const CartItemsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: scroll;
+  overflow-x: hidden;
 
   &::-webkit-scrollbar {
     width: 4px;
@@ -30,7 +33,7 @@ export const CartItemsContainer = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(97, 75, 44, 0.7);
     border-radius: 20px;
   }
 `;
@@ -38,4 +41,5 @@ export const CartItemsContainer = styled.div`
 export const CartEmptyContainer = styled.span`
   margin: auto 0;
   font-size: 18px;
+  color: white;
 `;

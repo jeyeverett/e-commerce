@@ -18,12 +18,14 @@ import {
   LogoContainer,
   OptionsContainer,
   OptionLink,
+  StyledBrand,
 } from './header.styles';
 
 const Header = ({ currentUser, cartHidden, dispatch }) => (
   <HeaderContainer>
     <LogoContainer to="/">
       <Logo />
+      <StyledBrand>carrotcart</StyledBrand>
     </LogoContainer>
     <OptionsContainer>
       <OptionLink to="/shop">shop</OptionLink>

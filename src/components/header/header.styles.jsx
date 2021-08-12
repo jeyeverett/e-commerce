@@ -15,12 +15,22 @@ export const HeaderContainer = styled.header`
   }
 `;
 
+export const StyledBrand = styled.h1`
+  font-size: 26px;
+  color: white;
+  margin-left: 15px;
+  font-family: 'Indie Flower', sans-serif;
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
+`;
+
 export const LogoContainer = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 70px;
+  width: min-content;
   @media screen and (max-width: 800px) {
     svg {
       width: 40px;
@@ -37,16 +47,23 @@ export const OptionsContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  font-family: 'Indie Flower', sans-serif;
   @media screen and (max-width: 800px) {
     width: 80%;
   }
 `;
 
 export const OptionLink = styled(Link)`
-  padding: 10px 15px;
+  padding: 10px 20px;
   font-size: 22px;
   cursor: pointer;
   color: white;
+
+  :hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+  }
+
   @media screen and (max-width: 800px) {
     font-size: 16px;
   }

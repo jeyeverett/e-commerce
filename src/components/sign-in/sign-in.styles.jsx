@@ -7,6 +7,7 @@ export const SignInContainer = styled.div`
 
   .title {
     margin: 10px 0;
+    color: white;
   }
 
   .button {

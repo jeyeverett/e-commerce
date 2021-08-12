@@ -4,19 +4,23 @@ const getSize = (props) => {
   return props.size ? '380px' : '240px';
 };
 
+const getFlex = (props) => {
+  return props.size ? '40%' : '30%';
+};
+
 const getImageUrl = (props) => props.imageUrl;
 
 export const MenuItemContainer = styled.div`
-  min-width: 30%;
+  min-width: ${getFlex};
   height: ${getSize};
-  flex: 1 1 auto;
   display: flex;
+  flex: 1 1 auto;
   align-items: center;
   justify-content: center;
   margin: 0 7.5px 15px;
   position: relative;
   overflow: hidden;
-  border-radius: 5%;
+  border-radius: 20px;
 
   &:hover {
     cursor: pointer;
@@ -50,15 +54,18 @@ export const MenuItemContent = styled.div`
   align-items: center;
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
   transition: all 0.3s;
 
   .title {
+    font-family: 'Indie Flower', sans-serif;
     font-weight: bold;
-    margin-bottom: 6px;
-    font-size: 22px;
-    color: #634b2c;
+    margin: 0;
+    font-size: 30px;
+    color: #696430;
 
     @media screen and (max-width: 600px) {
+      font-size: 24px;
       margin-top: 0;
     }
   }
@@ -66,7 +73,7 @@ export const MenuItemContent = styled.div`
   .subtitle {
     font-weight: lighter;
     font-size: 16px;
-    color: #634b2c;
+    color: #696430;
   }
 
   &:hover {

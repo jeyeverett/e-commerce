@@ -24,7 +24,7 @@ export const CollectionImage = styled.img`
   transition: all 0.2s;
   background-image: url(${getImageUrl});
   cursor: pointer;
-  border-radius: 5%;
+  border-radius: 20px;
 
   ${CollectionItemContainer}:hover & {
     opacity: 0.8;

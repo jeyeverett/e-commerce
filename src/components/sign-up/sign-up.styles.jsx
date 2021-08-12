@@ -7,6 +7,7 @@ export const SignUpContainer = styled.div`
 
   .title {
     margin: 10px 0;
+    color: white;
   }
 
   @media screen and (max-width: 600px) {
