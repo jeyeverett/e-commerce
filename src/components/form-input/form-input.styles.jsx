@@ -1,59 +1,66 @@
 import styled, { css } from 'styled-components';
 
 export const FormGroup = styled.div`
-    position: relative;
-    margin: 45px 0;
+  position: relative;
+  margin: 45px 0;
+  @media screen and (max-width: 650px) {
+    margin: 30px 0;
+  }
 `;
 
 const shrinkLabel = css`
-    top: -14px;
-    font-size: 12px;
-    color: black;
+  top: -16px;
+  font-size: 12px;
+  color: white;
+  opacity: 1;
 `;
 
-const addShrinkLabel = props => {
-    if (props.value.length) {
-        return shrinkLabel;
-    }
+const addShrinkLabel = (props) => {
+  if (props.value.length) {
+    return shrinkLabel;
+  }
 
-    return '';
-}
+  return '';
+};
 
 export const FormInputStyled = styled.input`
-    background: none;
-    background-color: white;
-    color: grey;
-    font-size: 18px;
-    padding: 10px 10px 10px 5px;
-    display: block;
-    width: 100%;
-    border: none;
-    border-radius: 0;
-    border-bottom: 1px solid grey;
-    margin: 25px 0;
+  font-family: 'Montserrat', sans-serif;
+  background: none;
+  background-color: rgb(232, 240, 254);
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+  padding: 10px 10px 10px 10px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  border-bottom: 1px solid #adcbdc;
+  margin: 25px 0;
 
-    &:focus {
-        outline: none;
-    }
+  &:focus {
+    outline: none;
+  }
 
-    &input[type='password'] {
-        letter-spacing: 0.3em;
-    }
+  &input[type='password'] {
+    letter-spacing: 0.3em;
+  }
 `;
 
 export const FormInputLabel = styled.label`
-    color: grey;
-    font-size: 16px;
-    font-weight: normal;
-    position: absolute;
-    pointer-events: none;
-    left: 5px;
-    top: 10px;
-    transition: .3s ease all;
+  opacity: 0;
+  font-size: 16px;
+  font-weight: normal;
+  font-family: 'Montserrat', sans-serif;
 
-    ${FormInputStyled}:focus ~ & {
-        ${shrinkLabel};
-    }
+  position: absolute;
+  pointer-events: none;
+  left: 10px;
+  top: 10px;
+  transition: 0.3s ease all;
 
-    ${addShrinkLabel}
+  ${FormInputStyled}:active ~ & {
+    ${shrinkLabel};
+  }
+
+  ${addShrinkLabel}
 `;

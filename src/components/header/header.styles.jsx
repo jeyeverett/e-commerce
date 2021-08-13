@@ -67,6 +67,9 @@ export const OptionLink = styled(Link)`
   @media screen and (max-width: 800px) {
     font-size: 16px;
   }
+  @media screen and (max-width: 600px) {
+    padding: 5px 10px;
+  }
   @media screen and (max-width: 400px) {
     font-size: 14px;
     padding: 5px 5px;

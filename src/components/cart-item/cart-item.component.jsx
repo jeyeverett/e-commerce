@@ -10,7 +10,7 @@ const CartItem = ({ item }) => (
   <CartItemContainer>
     <CartImageStyled src={item.imageUrl} alt={item.name} />
     <CartItemDetailsContainer>
-      <span style={{ marginBottom: '10px' }}>{item.name}</span>
+      <span style={{ marginBottom: '5%' }}>{item.name}</span>
       <span>
         {item.quantity} x ${item.price}
       </span>

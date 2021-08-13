@@ -15,6 +15,33 @@ const getImageUrl = (item) => {
   return item.imageUrl;
 };
 
+export const ItemDescriptionContainer = styled.p`
+  position: absolute;
+  opacity: 0;
+  color: white;
+  width: 80%;
+  background-color: rgba(72, 133, 168, 0.9);
+  border-radius: 10px;
+  transition: opacity 0.3s;
+  padding: 20px 30px;
+  font-size: 12px;
+  line-height: 20px;
+  margin-top: 20px;
+
+  ${CollectionItemContainer}:hover & {
+    opacity: 1;
+  }
+
+  @media screen and (max-width: 1100px) {
+    font-size: 11px;
+    padding: 10px 20px;
+  }
+
+  @media screen and (max-width: 650px) {
+    line-height: 15px;
+  }
+`;
+
 export const CollectionImage = styled.img`
   width: 100%;
   height: 95%;
@@ -23,17 +50,14 @@ export const CollectionImage = styled.img`
   margin-bottom: 5px;
   transition: all 0.2s;
   background-image: url(${getImageUrl});
-  cursor: pointer;
   border-radius: 20px;
 
   ${CollectionItemContainer}:hover & {
     opacity: 0.8;
   }
-  @media screen and (max-width: 800px) {
-    width: 200px;
-  }
-  @media screen and (max-width: 600px) {
-    width: 140px;
+
+  @media screen and (max-width: 400px) {
+    width: 100%;
   }
 `;
 
@@ -42,15 +66,21 @@ export const ItemFooterContainer = styled.div`
   height: 5%;
   display: flex;
   justify-content: space-between;
-  font-size: 18px;
+  font-size: 16px;
   color: white;
+  padding: 0 10px;
+
   @media screen and (max-width: 800px) {
     margin-bottom: 40px;
+  }
+
+  @media screen and (max-width: 650px) {
+    font-size: 12px;
   }
 `;
 
 export const CustomButtonStyled = styled(CustomButton)`
-  width: 80%;
+  width: 80% !important;
   opacity: 0;
   position: absolute;
   top: 255px;
@@ -63,14 +93,14 @@ export const CustomButtonStyled = styled(CustomButton)`
     visibility: visible;
   }
 
+  @media screen and (max-width: 800px) {
+    top: 225px;
+  }
+
   @media screen and (max-width: 600px) {
     visibility: visible;
-    background-color: white;
-    color: black;
     opacity: 0.8;
     font-size: 12px;
-    padding: 0 5px;
-    top: 225px;
-    min-width: 25px;
+    max-width: 80%;
   }
 `;

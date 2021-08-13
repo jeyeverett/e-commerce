@@ -1,9 +1,8 @@
 import styled, { css } from 'styled-components';
 
 export const InvertedButtonStyles = css`
-  background-color: white;
-  color: black;
-  border: 1px solid black;
+  background-color: rgba(105, 100, 48, 0.5);
+  color: white;
 
   &:hover {
     background-color: black;
@@ -13,14 +12,16 @@ export const InvertedButtonStyles = css`
 `;
 
 export const GoogleSignInStyles = css`
-  background-color: #4285f4;
+  background-color: rgba(66, 133, 244, 0.6);
   color: white;
+  border: 1px solid rgba(66, 133, 244, 0.6);
+  margin-left: 10px;
   transition: all 0.2s;
 
   &:hover {
-    background-color: white;
-    color: #4285f4;
-    border: 1px solid #4285f4;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: rgba(66, 133, 244, 0.9);
+    border: 1px solid rgba(66, 133, 244, 0.6);
   }
   @media screen and (max-width: 600px) {
     min-width: 130px;
@@ -28,12 +29,13 @@ export const GoogleSignInStyles = css`
 `;
 
 const buttonStyles = css`
-  background-color: #696430;
+  background-color: rgba(72, 133, 168, 0.7);
   color: white;
   transition: all 0.2s;
+  margin-right: 10px;
 
   &:hover {
-    background-color: #464320;
+    background-color: rgba(72, 133, 168, 0.9);
   }
 `;
 
@@ -47,7 +49,8 @@ export const CustomButtonContainer = styled.button`
   width: 90%;
   margin: 10px auto 0;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: bold;
   font-family: 'Montserrat';
   border: none;
   border-radius: 10px;
@@ -56,7 +59,7 @@ export const CustomButtonContainer = styled.button`
   ${getButtonStyles}
 
   @media screen and (max-width: 600px) {
-    min-width: 120px;
-    font-size: 12px;
+    width: 100%;
+    font-size: 11px;
   }
 `;

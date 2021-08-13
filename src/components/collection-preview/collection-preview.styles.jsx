@@ -32,10 +32,19 @@ export const CollectionTitle = styled.h1`
 export const CollectionPreviewItems = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 4%;
-  @media screen and (max-width: 800px) {
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 15px;
-    grid-row-gap: 10px;
+  grid-column-gap: 2%;
+
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 0;
+  }
+  @media screen and (max-width: 650px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 400px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 `;

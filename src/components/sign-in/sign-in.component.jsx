@@ -44,6 +44,7 @@ const SignIn = ({ dispatch }) => {
           type="email"
           value={email}
           label="Email"
+          placeholder="Email"
           handleChange={handleChange}
           required
         />
@@ -52,6 +53,7 @@ const SignIn = ({ dispatch }) => {
           type="password"
           value={password}
           label="Password"
+          placeholder="Password"
           handleChange={handleChange}
           required
         />

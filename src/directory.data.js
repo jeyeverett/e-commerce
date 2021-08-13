@@ -34,7 +34,7 @@ const SECTIONS_DATA = [
   {
     title: 'baskets',
     imageUrl:
-      'https://res.cloudinary.com/dnpfrwpiq/image/upload/v1628702618/carrotcart/baskets/bananabasket_c8xwla.png',
+      'https://res.cloudinary.com/dnpfrwpiq/image/upload/v1628797643/carrotcart/baskets/basket_lk5rfd.jpg',
     id: 5,
     linkUrl: 'shop/basket',
   },

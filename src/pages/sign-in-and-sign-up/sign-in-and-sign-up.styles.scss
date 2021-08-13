@@ -1,7 +1,8 @@
 .sign-in-and-signup {
-  display: flex;
-  justify-content: space-evenly;
-  @media screen and (max-width: 600px) {
-    flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @media screen and (max-width: 900px) {
+    grid-template-columns: 1fr;
   }
 }

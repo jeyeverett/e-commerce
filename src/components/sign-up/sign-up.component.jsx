@@ -47,6 +47,7 @@ const SignUp = ({ dispatch }) => {
           name="displayName"
           value={displayName}
           label="Name"
+          placeholder="Name"
           onChange={handleChange}
           required
         />
@@ -55,6 +56,7 @@ const SignUp = ({ dispatch }) => {
           name="email"
           value={email}
           label="Email"
+          placeholder="Email"
           onChange={handleChange}
           required
         />
@@ -63,6 +65,7 @@ const SignUp = ({ dispatch }) => {
           name="password"
           value={password}
           label="Password"
+          placeholder="Password"
           onChange={handleChange}
           required
         />
@@ -71,11 +74,14 @@ const SignUp = ({ dispatch }) => {
           name="confirmPassword"
           value={confirmPassword}
           label="Confirm Password"
+          placeholder="Confirm Password"
           onChange={handleChange}
           required
         />
-        <div className="button">
-          <CustomButton type="submit">sign up</CustomButton>
+        <div>
+          <CustomButton className="button" type="submit">
+            sign up
+          </CustomButton>
         </div>
       </form>
     </SignUpContainer>

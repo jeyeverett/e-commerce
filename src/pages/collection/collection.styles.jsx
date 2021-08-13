@@ -6,15 +6,18 @@ export const CollectionPageContainer = styled.div`
   margin-bottom: 40px;
 
   .title {
-    font-size: 48px;
+    font-size: 52px;
     letter-spacing: 6px;
     font-family: 'Indie Flower', sans-serif;
     text-align: center;
     margin: 15px auto 50px;
     padding-bottom: 5px;
-    border-bottom: 3px solid #696430;
     width: min-content;
     color: white;
+
+    @media screen and (max-width: 600px) {
+      font-size: 30px;
+    }
   }
 `;
 
@@ -24,9 +27,18 @@ export const CollectionContainer = styled.div`
   grid-template-rows: auto;
   grid-column-gap: 2%;
   grid-row-gap: 40px;
-  @media screen and (max-width: 600px) {
-    grid-template-columns: 1fr 1fr;
-    grid-row-gap: 20px;
+
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 0;
+  }
+  @media screen and (max-width: 650px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 400px) {
+    display: flex;
+    flex-direction: column;
   }
 `;
 
