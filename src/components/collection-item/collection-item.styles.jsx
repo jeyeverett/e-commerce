@@ -63,12 +63,14 @@ export const CollectionImage = styled.img`
 
 export const ItemFooterContainer = styled.div`
   width: 100%;
-  height: 5%;
   display: flex;
   justify-content: space-between;
   font-size: 16px;
-  color: white;
-  padding: 0 10px;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 14px;
 
   @media screen and (max-width: 800px) {
     margin-bottom: 40px;

@@ -21,7 +21,7 @@ export const CollectionPageContainer = styled.div`
   }
 `;
 
-export const CollectionContainer = styled.div`
+export const CollectionContainer = styled.section`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
