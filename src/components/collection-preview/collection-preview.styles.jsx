@@ -4,14 +4,12 @@ export const CollectionPreviewContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 25px;
-  @media screen and (max-width: 800px) {
-    align-items: center;
-  }
 `;
 
 export const CollectionTitle = styled.h1`
   font-family: 'Indie Flower', sans-serif;
   letter-spacing: 3px;
+  font-size: 30px;
   width: min-content;
   margin: 10px 20px;
   padding: 10px 20px;
@@ -42,7 +40,7 @@ export const CollectionPreviewItems = styled.div`
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 420px) {
     display: flex;
     flex-direction: column;
     width: 100%;

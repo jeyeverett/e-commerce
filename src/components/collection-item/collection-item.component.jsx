@@ -10,6 +10,7 @@ import {
   ItemFooterContainer,
   CustomButtonStyled,
   ItemDescriptionContainer,
+  StyledPriceContainer,
 } from './collection-item.styles';
 
 const CollectionItem = ({ item, addItem }) => {
@@ -25,7 +26,10 @@ const CollectionItem = ({ item, addItem }) => {
       </ItemDescriptionContainer>
       <ItemFooterContainer>
         <span>{name}</span>
-        <span>${price}</span>
+        <StyledPriceContainer>
+          <span>$/bunch</span>
+          <span>${price}</span>
+        </StyledPriceContainer>
       </ItemFooterContainer>
       <CustomButtonStyled onClick={() => addItem(item)}>
         add to cart

@@ -64,10 +64,11 @@ export const CollectionImage = styled.img`
 export const ItemFooterContainer = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   font-size: 16px;
   font-weight: 600;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.5);
   color: rgba(0, 0, 0, 0.6);
   padding: 10px 20px;
   border-radius: 14px;
@@ -76,16 +77,24 @@ export const ItemFooterContainer = styled.div`
     margin-bottom: 40px;
   }
 
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 720px) {
     font-size: 12px;
   }
+`;
+
+export const StyledPriceContainer = styled.span`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  color: rgba(0, 0, 0, 0.4);
 `;
 
 export const CustomButtonStyled = styled(CustomButton)`
   width: 80% !important;
   opacity: 0;
   position: absolute;
-  top: 255px;
+  top: 220px;
   visibility: hidden;
   transition: all 0.3s;
   outline: none;
@@ -96,7 +105,7 @@ export const CustomButtonStyled = styled(CustomButton)`
   }
 
   @media screen and (max-width: 800px) {
-    top: 225px;
+    top: 185px;
   }
 
   @media screen and (max-width: 600px) {
