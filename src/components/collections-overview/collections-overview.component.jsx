@@ -13,9 +13,11 @@ import { CollectionsOverviewContainer } from './collections-overview.styles';
 const CollectionsOverview = ({ collections }) => {
   return (
     <CollectionsOverviewContainer>
-      {collections.map(({ id, ...collectionProps }) => (
-        <CollectionPreview key={id} {...collectionProps} />
-      ))}
+      {collections
+        .sort((a, b) => a.position - b.position)
+        .map(({ id, ...collectionProps }) => (
+          <CollectionPreview key={id} {...collectionProps} />
+        ))}
     </CollectionsOverviewContainer>
   );
 };

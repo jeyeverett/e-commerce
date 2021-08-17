@@ -6,7 +6,7 @@ export const CollectionItemContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 350px;
+  height: 400px;
   align-items: center;
   position: relative;
 `;
@@ -94,7 +94,7 @@ export const CustomButtonStyled = styled(CustomButton)`
   width: 80% !important;
   opacity: 0;
   position: absolute;
-  top: 220px;
+  top: 260px;
   visibility: hidden;
   transition: all 0.3s;
   outline: none;
@@ -105,7 +105,7 @@ export const CustomButtonStyled = styled(CustomButton)`
   }
 
   @media screen and (max-width: 800px) {
-    top: 185px;
+    top: 230px;
   }
 
   @media screen and (max-width: 600px) {

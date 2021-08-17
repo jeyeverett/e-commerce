@@ -21,22 +21,22 @@ const AboutPage = () => {
             alt="farmer"
           />
           <AboutText>
-            <div className="title">Hand grown with love and care</div>
-            <span>
+            <h2 className="title">Hand grown with love and care</h2>
+            <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
               nesciunt ullam nisi ipsa, eum aut ex fuga quibusdam iste dolores
               libero. Nihil blanditiis eius ullam distinctio sint iste ratione
               cumque!
-            </span>
+            </p>
           </AboutText>
           <AboutText>
-            <div className="title">Raised the highest quality seeds</div>
-            <span>
+            <h2 className="title">Raised from the highest quality seeds</h2>
+            <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
               nesciunt ullam nisi ipsa, eum aut ex fuga quibusdam iste dolores
               libero. Nihil blanditiis eius ullam distinctio sint iste ratione
               cumque!
-            </span>
+            </p>
           </AboutText>
           <img
             src="https://res.cloudinary.com/dnpfrwpiq/image/upload/v1629129878/carrotcart/seedlings_osyzzy.jpg"

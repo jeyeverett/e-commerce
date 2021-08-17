@@ -13,7 +13,8 @@ export const StyledTitle = styled.h1`
   font-family: 'Indie Flower', sans-serif;
 
   @media screen and (max-width: 600px) {
-    font-size: 18px;
+    font-size: 26px;
+    margin-bottom: 0;
   }
 `;
 
