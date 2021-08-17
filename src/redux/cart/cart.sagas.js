@@ -23,7 +23,6 @@ export function* syncCartToFirestore(action) {
     if (!user) return;
 
     const cartDocRef = yield firestore.collection('carts').doc(user.uid).get();
-
     if (!cartDocRef.exists) {
       yield firestore
         .collection('carts')
