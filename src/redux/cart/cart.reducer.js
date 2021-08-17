@@ -39,17 +39,6 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         ...state,
         cartItems: [],
       };
-    case CartActionTypes.SYNC_CART_SUCCESS:
-      return {
-        ...state,
-        cartItems: action.payload,
-        error: null,
-      };
-    case CartActionTypes.SYNC_CART_FAILURE:
-      return {
-        ...state,
-        error: action.payload,
-      };
     case CartActionTypes.FETCH_CART_START:
       return {
         ...state,

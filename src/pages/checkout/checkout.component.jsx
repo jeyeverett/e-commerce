@@ -37,7 +37,7 @@ const CheckoutPage = ({ cartItems, cartTotal }) => (
     <CheckoutTotal>
       <span>TOTAL: ${cartTotal}</span>
     </CheckoutTotal>
-    <StripeCheckoutButton price={cartTotal} />
+    <StripeCheckoutButton price={cartTotal} cartItems={cartItems} />
     <TestWarning>
       *Please use the following test credit card for payments*
       <br />

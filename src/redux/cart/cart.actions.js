@@ -26,16 +26,11 @@ export const clearCart = () => ({
 
 export const syncCartSuccess = (cartItems) => ({
   type: CartActionTypes.SYNC_CART_SUCCESS,
-  payload: cartItems,
 });
 
 export const syncCartFailure = (error) => ({
   type: CartActionTypes.SYNC_CART_FAILURE,
   payload: error,
-});
-
-export const fetchCartStart = () => ({
-  type: CartActionTypes.FETCH_CART_START,
 });
 
 export const fetchCartSuccess = (cartItems) => ({

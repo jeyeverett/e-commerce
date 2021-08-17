@@ -6,7 +6,7 @@ import {
   getCurrentUser,
 } from '../../firebase/firebase.utils';
 
-import UserActionTypes from './user.types';
+import { UserActionTypes } from './user.types';
 import {
   signInSuccess,
   signInFailure,
