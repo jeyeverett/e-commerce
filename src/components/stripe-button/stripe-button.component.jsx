@@ -1,7 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
+import { createOrderStart } from '../../redux/orders/orders.actions';
+
 import { StyledStripeButton } from './stripe-button.styles';
 
-const StripeCheckoutButton = ({ price }) => {
+const StripeCheckoutButton = ({ price, cartItems, dispatch }) => {
   const priceForStripe = price * 100; //Stripe takes payments in cents
   const publishableKey =
     'pk_test_51IgGEEDNsfgN88DjOQJjCuUG9nX4MQQbgnvyHs6p8hhZhHeuhx0wA2aITIGa0XDXya8cTSn6yozcrQahFkLsEJwy00mU1S5LGE';
@@ -13,7 +18,10 @@ const StripeCheckoutButton = ({ price }) => {
       },
       body: JSON.stringify({ token, amount: priceForStripe }),
     })
-      .then((res) => alert('Payment successful!'))
+      .then((res) => {
+        alert('Payment successful!');
+        dispatch(createOrderStart(cartItems));
+      })
       .catch((err) =>
         alert(
           'Payment failed - please make sure you are using the provided credit card info.'
@@ -37,4 +45,4 @@ const StripeCheckoutButton = ({ price }) => {
   );
 };
 
-export default StripeCheckoutButton;
+export default withRouter(connect()(StripeCheckoutButton));

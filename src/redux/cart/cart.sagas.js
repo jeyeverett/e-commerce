@@ -1,31 +1,20 @@
-import { takeLatest, all, call, put } from 'redux-saga/effects';
-
+import { takeLatest, all, call, put, select } from 'redux-saga/effects';
+import { selectCartItems } from './cart.selector';
 import { CartActionTypes } from './cart.types';
-import UserActionTypes from '../user/user.types';
+import { UserActionTypes } from '../user/user.types';
 
 import { getCurrentUser, firestore } from '../../firebase/firebase.utils';
 
 import {
   clearCart,
-  fetchCartStart,
   fetchCartSuccess,
   fetchCartFailure,
   syncCartSuccess,
   syncCartFailure,
 } from './cart.actions';
 
-import {
-  addItemToCart,
-  removeItemFromCart,
-  clearItemFromCheckout,
-} from './cart.utils';
-
 export function* clearCartOnSignOut() {
   yield put(clearCart());
-}
-
-export function* fetchCartOnSignIn() {
-  yield put(fetchCartStart());
 }
 
 export function* syncCartToFirestore(action) {
@@ -33,49 +22,18 @@ export function* syncCartToFirestore(action) {
     const user = yield getCurrentUser();
     if (!user) return;
 
-    const currentUserRef = firestore.collection('users').doc(user.uid);
-    const currentUser = yield currentUserRef.get();
-    let userData, updatedCart;
+    const cartDocRef = yield firestore.collection('carts').doc(user.uid).get();
 
-    if (currentUser.exists) userData = yield currentUser.data();
-
-    if (!userData.cartId) {
-      const newDocRef = firestore.collection('carts').doc();
-      const newCartItem = { ...action.payload, quantity: 1 };
+    if (!cartDocRef.exists) {
       yield firestore
         .collection('carts')
-        .doc(newDocRef.id)
-        .set({ cartItems: [newCartItem], userId: user.uid });
-      yield firestore
-        .collection('users')
         .doc(user.uid)
-        .set({ cartId: newDocRef.id }, { merge: true });
-      return yield put(syncCartSuccess([newCartItem]));
+        .set({ cartItems: [{ ...action.payload, quantity: 1 }] });
     } else {
-      const userCart = yield firestore
-        .collection('carts')
-        .doc(userData.cartId)
-        .get();
-      const { cartItems } = userCart.data();
-      switch (action.type) {
-        case CartActionTypes.ADD_ITEM:
-          updatedCart = addItemToCart(cartItems, action.payload);
-          break;
-        case CartActionTypes.REMOVE_ITEM:
-          updatedCart = removeItemFromCart(cartItems, action.payload);
-          break;
-        case CartActionTypes.CLEAR_ITEM_FROM_CHECKOUT:
-          updatedCart = clearItemFromCheckout(cartItems, action.payload);
-          break;
-        default:
-          break;
-      }
+      const cartItems = yield select(selectCartItems);
+      yield firestore.collection('carts').doc(user.uid).update({ cartItems });
     }
-    yield firestore
-      .collection('carts')
-      .doc(userData.cartId)
-      .set({ cartItems: updatedCart }, { merge: true });
-    yield put(syncCartSuccess(updatedCart));
+    yield put(syncCartSuccess());
   } catch (error) {
     yield put(syncCartFailure(error.message));
   }
@@ -86,16 +44,9 @@ export function* fetchCartAsync() {
     const user = yield getCurrentUser();
     if (!user) return;
 
-    const currentUserRef = firestore.collection('users').doc(user.uid);
-    const currentUser = yield currentUserRef.get();
-    const userData = yield currentUser.data();
+    const userCart = yield firestore.collection('carts').doc(user.uid).get();
+    if (!userCart.exists) return;
 
-    if (!userData.cartId) return;
-
-    const userCart = yield firestore
-      .collection('carts')
-      .doc(userData.cartId)
-      .get();
     const { cartItems } = userCart.data();
 
     yield put(fetchCartSuccess(cartItems));
@@ -109,24 +60,16 @@ export function* onSignOutSuccess() {
 }
 
 export function* onSignInSuccess() {
-  yield takeLatest(UserActionTypes.SIGN_IN_SUCCESS, fetchCartOnSignIn);
+  yield takeLatest(UserActionTypes.SIGN_IN_SUCCESS, fetchCartAsync);
 }
 
-export function* onFetchCartStart() {
-  yield takeLatest(CartActionTypes.FETCH_CART_START, fetchCartAsync);
-}
-
-export function* onAddItem() {
-  yield takeLatest(CartActionTypes.ADD_ITEM, syncCartToFirestore);
-}
-
-export function* onRemoveItem() {
-  yield takeLatest(CartActionTypes.REMOVE_ITEM, syncCartToFirestore);
-}
-
-export function* onClearItem() {
+export function* onCartUpdate() {
   yield takeLatest(
-    CartActionTypes.CLEAR_ITEM_FROM_CHECKOUT,
+    [
+      CartActionTypes.ADD_ITEM,
+      CartActionTypes.REMOVE_ITEM,
+      CartActionTypes.CLEAR_ITEM_FROM_CHECKOUT,
+    ],
     syncCartToFirestore
   );
 }
@@ -134,10 +77,7 @@ export function* onClearItem() {
 export function* cartSagas() {
   yield all([
     call(onSignOutSuccess),
-    call(onAddItem),
-    call(onRemoveItem),
-    call(onClearItem),
-    call(onFetchCartStart),
     call(onSignInSuccess),
+    call(onCartUpdate),
   ]);
 }
