@@ -45,7 +45,7 @@ export function* syncCartToFirestore(action) {
       yield firestore
         .collection('carts')
         .doc(newDocRef.id)
-        .set({ cartItems: [newCartItem] });
+        .set({ cartItems: [newCartItem], userId: user.uid });
       yield firestore
         .collection('users')
         .doc(user.uid)
@@ -74,7 +74,7 @@ export function* syncCartToFirestore(action) {
     yield firestore
       .collection('carts')
       .doc(userData.cartId)
-      .set({ cartItems: updatedCart });
+      .set({ cartItems: updatedCart }, { merge: true });
     yield put(syncCartSuccess(updatedCart));
   } catch (error) {
     yield put(syncCartFailure(error.message));
@@ -89,6 +89,8 @@ export function* fetchCartAsync() {
     const currentUserRef = firestore.collection('users').doc(user.uid);
     const currentUser = yield currentUserRef.get();
     const userData = yield currentUser.data();
+
+    if (!userData.cartId) return;
 
     const userCart = yield firestore
       .collection('carts')
