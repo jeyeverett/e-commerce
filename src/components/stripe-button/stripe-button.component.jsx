@@ -6,7 +6,7 @@ import { createOrderStart } from '../../redux/orders/orders.actions';
 
 import { StyledStripeButton } from './stripe-button.styles';
 
-const StripeCheckoutButton = ({ price, cartItems, dispatch }) => {
+const StripeCheckoutButton = ({ price, cartItems, dispatch, history }) => {
   const priceForStripe = price * 100; //Stripe takes payments in cents
   const publishableKey =
     'pk_test_51IgGEEDNsfgN88DjOQJjCuUG9nX4MQQbgnvyHs6p8hhZhHeuhx0wA2aITIGa0XDXya8cTSn6yozcrQahFkLsEJwy00mU1S5LGE';
@@ -20,7 +20,24 @@ const StripeCheckoutButton = ({ price, cartItems, dispatch }) => {
     })
       .then((res) => {
         alert('Payment successful!');
-        dispatch(createOrderStart(cartItems));
+        return res.json();
+      })
+      .then((data) => {
+        if (data.success) {
+          dispatch(
+            createOrderStart({
+              cartItems,
+              receiptUrl: data.success.receipt_url,
+            })
+          );
+        } else {
+          const error = new Error('Payment failed.');
+          error.statusCode(500);
+          throw error;
+        }
+      })
+      .then(() => {
+        history.push('/orders');
       })
       .catch((err) =>
         alert(

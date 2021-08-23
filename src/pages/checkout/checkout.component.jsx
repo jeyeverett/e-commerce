@@ -8,6 +8,8 @@ import {
   TestWarning,
 } from './checkout.styles';
 
+import { StyledH1 } from '../generalstyles';
+
 //Redux
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -22,6 +24,7 @@ import StripeCheckoutButton from '../../components/stripe-button/stripe-button.c
 
 const CheckoutPage = ({ cartItems, cartTotal }) => (
   <CheckoutContainer>
+    <StyledH1>Checkout</StyledH1>
     <CheckoutHeader>
       <span>Product</span>
       <span>&nbsp;</span>

@@ -17,6 +17,7 @@ import ErrorBoundary from './components/error-boundary/error-boundary.component'
 const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
 const AboutPage = lazy(() => import('./pages/about-page/about-page.component'));
 const ShopPage = lazy(() => import('./pages/shop/shop.component'));
+const OrdersPage = lazy(() => import('./pages/orders/orderspage.component'));
 const SignInAndSignUpPage = lazy(() =>
   import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component')
 );
@@ -38,6 +39,13 @@ const App = ({ currentUser, checkUserSession }) => {
             <Route path="/shop" component={ShopPage} />
             <Route exact path="/checkout" component={CheckoutPage} />
             <Route exact path="/about" component={AboutPage} />
+            <Route
+              exact
+              path="/orders"
+              render={() =>
+                currentUser ? <OrdersPage /> : <Redirect to="/" />
+              }
+            />
             <Route
               exact
               path="/signin"

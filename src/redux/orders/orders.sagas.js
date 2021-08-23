@@ -1,15 +1,18 @@
 import { takeLatest, put, all, call } from 'redux-saga/effects';
-import admin from 'firebase';
 import { getCurrentUser, firestore } from '../../firebase/firebase.utils';
 
-import OrderActionTypes from './orders.types';
+import { UserActionTypes } from '../user/user.types';
+import { OrderActionTypes } from './orders.types';
 import {
-  createOrderStart,
   createOrderSuccess,
   createOrderFailure,
+  fetchOrdersStart,
+  fetchOrdersSuccess,
+  fetchOrdersFailure,
 } from './orders.actions';
 
-export function* createOrder({ payload: { cartItems } }) {
+export function* createOrder(data) {
+  const { cartItems, receiptUrl } = data.payload;
   try {
     const user = yield getCurrentUser();
     if (!user) return;
@@ -25,27 +28,35 @@ export function* createOrder({ payload: { cartItems } }) {
       0
     );
 
-    const orderRef = firestore.collection('orders').doc(user.uid);
-    const orderDoc = orderRef.get();
+    const orderRef = yield firestore.collection('orders').doc(user.uid);
+    const orderDoc = yield orderRef.get();
 
     if (!orderDoc.exists) {
       yield firestore
         .collection('orders')
         .doc(user.uid)
         .set({
-          orders: [{ orderItems, orderDate: new Date(), orderTotal }],
+          orders: [
+            { orderItems, orderDate: new Date(), orderTotal, receiptUrl },
+          ],
           userId: user.uid,
         });
     } else {
+      const { orders: existingOrders } = yield orderDoc.data();
+
       yield firestore
         .collection('orders')
         .doc(user.uid)
-        .update({
-          orders: admin.firestore.FieldValue.arrayUnion({
-            orderItems,
-            orderDate: new Date(),
-            orderTotal,
-          }),
+        .set({
+          orders: [
+            ...existingOrders,
+            {
+              orderItems,
+              orderDate: new Date(),
+              orderTotal,
+              receiptUrl,
+            },
+          ],
         });
     }
 
@@ -55,10 +66,39 @@ export function* createOrder({ payload: { cartItems } }) {
   }
 }
 
+export function* fetchOrdersAsync() {
+  yield put(fetchOrdersStart());
+  try {
+    const user = yield getCurrentUser();
+    if (!user) return;
+
+    const userOrders = yield firestore.collection('orders').doc(user.uid).get();
+    if (!userOrders.exists) return;
+
+    const { orders } = userOrders.data();
+
+    yield put(fetchOrdersSuccess(orders));
+  } catch (error) {
+    yield put(fetchOrdersFailure(error.message));
+  }
+}
+
+export function* onSignInSuccess() {
+  yield takeLatest(UserActionTypes.SIGN_IN_SUCCESS, fetchOrdersAsync);
+}
+
 export function* onCreateOrderStart() {
   yield takeLatest(OrderActionTypes.CREATE_ORDER_START, createOrder);
 }
 
+export function* onCreateOrderSuccess() {
+  yield takeLatest(OrderActionTypes.CREATE_ORDER_SUCCESS, fetchOrdersAsync);
+}
+
 export function* orderSagas() {
-  yield all([call(onCreateOrderStart)]);
+  yield all([
+    call(onCreateOrderStart),
+    call(onSignInSuccess),
+    call(onCreateOrderSuccess),
+  ]);
 }

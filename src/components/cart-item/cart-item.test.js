@@ -12,7 +12,9 @@ describe('CartItem component', () => {
       quantity: 1,
       imageUrl: 'http://testurl.com',
     };
-    const { getByAltText, getByText } = render(<CartItem item={item} />);
+    const { container, getByAltText, getByText } = render(
+      <CartItem item={item} />
+    );
     const image = getByAltText(/test name/i);
     expect(image).toHaveAttribute('alt', 'Test Name');
     expect(image).toHaveAttribute('src', 'http://testurl.com');
@@ -23,7 +25,5 @@ describe('CartItem component', () => {
 
     const priceQuantity = getByText('1 x $10');
     expect(priceQuantity).toBeInTheDocument();
-
-    // expect(container.lastChild.lastChild).toHaveTextContent('1 x $10');
   });
 });

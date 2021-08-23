@@ -31,9 +31,12 @@ const Header = ({ currentUser, cartHidden, dispatch }) => (
       <OptionLink to="/shop">shop</OptionLink>
       <OptionLink to="/about">about</OptionLink>
       {currentUser ? (
-        <OptionLink as="div" onClick={() => dispatch(signOutStart())}>
-          sign out
-        </OptionLink>
+        <>
+          <OptionLink to="/orders">orders</OptionLink>
+          <OptionLink as="div" onClick={() => dispatch(signOutStart())}>
+            sign out
+          </OptionLink>
+        </>
       ) : (
         <OptionLink to="/signin">sign in</OptionLink>
       )}
