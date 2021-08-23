@@ -25,27 +25,33 @@ import StripeCheckoutButton from '../../components/stripe-button/stripe-button.c
 const CheckoutPage = ({ cartItems, cartTotal }) => (
   <CheckoutContainer>
     <StyledH1>Checkout</StyledH1>
-    <CheckoutHeader>
-      <span>Product</span>
-      <span>&nbsp;</span>
-      <span>Quantity</span>
-      <span>Price</span>
-      <span>Remove</span>
-    </CheckoutHeader>
+    {cartItems.length && (
+      <CheckoutHeader>
+        <span>Product</span>
+        <span>&nbsp;</span>
+        <span>Quantity</span>
+        <span>Price</span>
+        <span>Remove</span>
+      </CheckoutHeader>
+    )}
     {!cartItems.length ? (
       <EmptyCheckout>Your cart is empty</EmptyCheckout>
     ) : (
-      cartItems.map((item) => <CheckoutItem key={item.id} item={item} />)
+      <>
+        {cartItems.map((item) => (
+          <CheckoutItem key={item.id} item={item} />
+        ))}
+        <CheckoutTotal>
+          <span>TOTAL: ${cartTotal}</span>
+        </CheckoutTotal>
+        <StripeCheckoutButton price={cartTotal} cartItems={cartItems} />
+        <TestWarning>
+          *Please use the following test credit card for payments*
+          <br />
+          4242 4242 4242 4242 - EXP: 06/25 - CVC: 852
+        </TestWarning>
+      </>
     )}
-    <CheckoutTotal>
-      <span>TOTAL: ${cartTotal}</span>
-    </CheckoutTotal>
-    <StripeCheckoutButton price={cartTotal} cartItems={cartItems} />
-    <TestWarning>
-      *Please use the following test credit card for payments*
-      <br />
-      4242 4242 4242 4242 - EXP: 06/25 - CVC: 852
-    </TestWarning>
   </CheckoutContainer>
 );
 

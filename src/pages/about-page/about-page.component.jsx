@@ -14,7 +14,6 @@ const AboutPage = () => {
     <AboutPageContainer>
       <StyledTitle>About Us</StyledTitle>
       <AboutContainer>
-        <AboutImageContainer></AboutImageContainer>
         <AboutInfoContainer>
           <img
             src="https://res.cloudinary.com/dnpfrwpiq/image/upload/v1629129878/carrotcart/farmer_y9itbm.jpg"

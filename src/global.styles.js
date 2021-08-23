@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'Montserrat', sans-serif;
         padding: 20px 40px;
-        background-color: #ADCBDC;
+        background-color: #798e9a;
 
         @media screen and (max-width: 800px) {
             padding: 10px;

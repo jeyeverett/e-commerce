@@ -82,6 +82,13 @@ export const ItemFooterContainer = styled.div`
   }
 `;
 
+export const StyledNameContainer = styled.span`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+`;
+
 export const StyledPriceContainer = styled.span`
   width: 100%;
   display: flex;

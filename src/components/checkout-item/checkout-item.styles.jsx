@@ -30,15 +30,19 @@ export const CheckoutImageContainer = styled.img`
   }
 `;
 
+export const StyledQuantity = styled.span``;
+
 export const CheckoutQuantityButton = styled.button`
-  cursor: pointer;
   background: none;
-  display: inline-block;
-  font-size: inherit;
-  text-align: center;
   border: none;
-  outline: none;
+  font-family: sans-serif;
   color: white;
+  cursor: pointer;
+  font-size: 30px;
+  line-height: 20px;
+  transition: all 0.2s;
+  padding: 0px 10px;
+  transform: translateY(5px);
 
   &:hover {
     opacity: 0.7;
@@ -46,15 +50,13 @@ export const CheckoutQuantityButton = styled.button`
 `;
 
 export const CheckoutRemoveButton = styled.button`
-  cursor: pointer;
   background: none;
-  display: inline-block;
-  font-size: inherit;
-  font-weight: bolder;
-  text-align: center;
   border: none;
-  outline: none;
+  font-family: 'Indie Flower', sans-serif;
   color: white;
+  cursor: pointer;
+  font-size: 40px;
+  transition: all 0.2s;
 
   &:hover {
     opacity: 0.7;
@@ -63,4 +65,8 @@ export const CheckoutRemoveButton = styled.button`
 
 export const StyledProductName = styled.span`
   max-width: 90%;
+`;
+
+export const StyledPrice = styled.span`
+  color: white;
 `;

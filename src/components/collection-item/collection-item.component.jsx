@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import ToggleSwitch from '../../components/toggle-switch/toggle-switch.component';
 
 //Redux
 import { connect } from 'react-redux';
@@ -11,21 +13,22 @@ import {
   CustomButtonStyled,
   ItemDescriptionContainer,
   StyledPriceContainer,
+  StyledNameContainer,
+  ToggleContainer,
 } from './collection-item.styles';
 
 const CollectionItem = ({ item, addItem }) => {
   const { name, price } = item;
+
   return (
     <CollectionItemContainer>
       <CollectionImage {...item} />
       <ItemDescriptionContainer>
-        <span>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-          natus temporibus dolorem exercitationem possimus!
-        </span>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam natus
+        temporibus dolorem exercitationem possimus!
       </ItemDescriptionContainer>
       <ItemFooterContainer>
-        <span>{name}</span>
+        <StyledNameContainer>{name}</StyledNameContainer>
         <StyledPriceContainer>
           <span>$/bunch</span>
           <span>${price}</span>

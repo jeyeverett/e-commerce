@@ -1,14 +1,20 @@
 import styled from 'styled-components';
 
-export const OrderItemsContainer = styled.div`
+export const OrderItemsContainer = styled.table`
   width: 75%;
   border: 1px solid white;
   padding: 20px 40px;
   border-radius: 10px;
   margin-bottom: 40px;
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    padding: 20px 20px;
+  }
 `;
 
-export const OrderItemContainer = styled.div`
+export const OrderItemContainer = styled.td`
   width: 100%;
   display: grid;
   align-items: center;
@@ -24,7 +30,7 @@ export const OrderItemContainer = styled.div`
   }
 `;
 
-export const OrderTitle = styled.div`
+export const OrderTitle = styled.h2`
   color: white;
   font-size: 16px;
   width: 100%;
@@ -34,7 +40,7 @@ export const OrderTitle = styled.div`
   margin-bottom: 20px;
 `;
 
-export const OrderHeader = styled.div`
+export const OrderHeader = styled.h3`
   width: 100%;
   display: grid;
   align-items: center;
@@ -73,8 +79,21 @@ export const OrderItemFooter = styled.div`
     padding: 10px 20px;
     border: 1px solid white;
     border-radius: 10px;
+    transition: all 0.2s;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
+
     &:hover {
       background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    @media screen and (max-width: 600px) {
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+  }
+  span {
+    @media screen and (max-width: 600px) {
+      font-size: 10px;
     }
   }
 `;

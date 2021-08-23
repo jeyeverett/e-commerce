@@ -6,6 +6,8 @@ import {
   CheckoutQuantityButton,
   CheckoutRemoveButton,
   StyledProductName,
+  StyledPrice,
+  StyledQuantity,
 } from './checkout-item.styles';
 
 //Redux
@@ -21,17 +23,26 @@ const CheckoutItem = ({ item, dispatch }) => (
     <CheckoutImageContainer src={item.imageUrl} alt={item.name} />
     <StyledProductName>{item.name}</StyledProductName>
     <span>
-      <CheckoutQuantityButton onClick={() => dispatch(removeItem(item))}>
-        &#10094;
+      <CheckoutQuantityButton
+        onClick={() => dispatch(removeItem(item))}
+        title="remove one"
+      >
+        {'<'}
       </CheckoutQuantityButton>
-      {item.quantity}
-      <CheckoutQuantityButton onClick={() => dispatch(addItem(item))}>
-        &#10095;
+      <StyledQuantity>{item.quantity}</StyledQuantity>
+      <CheckoutQuantityButton
+        onClick={() => dispatch(addItem(item))}
+        title="add one"
+      >
+        {'>'}
       </CheckoutQuantityButton>
     </span>
-    <span>${item.price}</span>
-    <CheckoutRemoveButton onClick={() => dispatch(clearItemFromCheckout(item))}>
-      &#10005;
+    <StyledPrice>${item.price}</StyledPrice>
+    <CheckoutRemoveButton
+      onClick={() => dispatch(clearItemFromCheckout(item))}
+      title="remove item"
+    >
+      {'X'}
     </CheckoutRemoveButton>
   </CheckoutItemContainer>
 );

@@ -11,11 +11,11 @@ const ToggleSwitchContainer = (props) => {
   const [checked, toggleCheckbox] = useState(false);
   return (
     <ToggleSwitch>
-      <ToggleSwitchBackground htmlFor="toggleCheckbox">
+      <ToggleSwitchBackground htmlFor={props.id}>
         <ToggleSwitchCheckbox
           onChange={() => toggleCheckbox(!checked)}
           type="checkbox"
-          id="toggleCheckbox"
+          id={props.id}
         />
         <ToggleSwitchToggle checked={checked}>&nbsp;</ToggleSwitchToggle>
       </ToggleSwitchBackground>
