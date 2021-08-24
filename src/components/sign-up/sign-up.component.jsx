@@ -6,7 +6,7 @@ import CustomButton from '../custom-button/custom-button.component';
 import { SignUpContainer } from './sign-up.styles';
 
 import { connect } from 'react-redux';
-import { signUpStart } from '../../redux/user/user.actions';
+import { signUpStart, signUpFailure } from '../../redux/user/user.actions';
 
 const SignUp = ({ dispatch }) => {
   const [userCredentials, setUserCredentials] = useState({
@@ -21,7 +21,7 @@ const SignUp = ({ dispatch }) => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
-      alert('Passwords must match');
+      dispatch(signUpFailure({ message: 'Passwords must match.' }));
       return;
     }
 
@@ -37,9 +37,7 @@ const SignUp = ({ dispatch }) => {
   return (
     <SignUpContainer>
       <h2 className="title">I do not have an account</h2>
-      <span style={{ color: 'white' }}>
-        Sign up with your email and password
-      </span>
+      <span className="subtitle">Sign up with your email and password</span>
 
       <form className="sign-up-form" onSubmit={handleSubmit}>
         <FormInput
@@ -80,7 +78,7 @@ const SignUp = ({ dispatch }) => {
         />
         <div>
           <CustomButton className="button" type="submit">
-            sign up
+            Sign up
           </CustomButton>
         </div>
       </form>

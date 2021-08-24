@@ -29,13 +29,14 @@ export const FormInputStyled = styled.input`
   background-color: rgb(232, 240, 254);
   color: rgba(0, 0, 0, 0.6);
   font-size: 16px;
-  padding: 10px 10px 10px 10px;
+  padding: 10px;
   display: block;
   width: 100%;
   border: none;
   border-radius: 10px;
-  border-bottom: 1px solid #adcbdc;
+  border: 1px solid #adcbdc;
   margin: 25px 0;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
 
   &:focus {
     outline: none;
@@ -43,6 +44,11 @@ export const FormInputStyled = styled.input`
 
   &input[type='password'] {
     letter-spacing: 0.3em;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 12px;
+    padding: 8px;
   }
 `;
 

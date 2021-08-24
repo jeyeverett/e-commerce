@@ -34,9 +34,7 @@ const SignIn = ({ dispatch }) => {
   return (
     <SignInContainer>
       <h2 className="title">I already have an account.</h2>
-      <span style={{ color: 'white' }}>
-        Sign in with your email and password
-      </span>
+      <span className="subtitle">Sign in with your email and password</span>
 
       <form onSubmit={handleSubmit}>
         <FormInput
@@ -64,7 +62,7 @@ const SignIn = ({ dispatch }) => {
             onClick={() => dispatch(googleSignInStart())}
             isGoogleSignIn
           >
-            Sign in with google
+            Sign in with Google
           </CustomButton>
         </div>
       </form>

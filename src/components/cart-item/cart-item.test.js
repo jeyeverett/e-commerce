@@ -5,7 +5,7 @@ import CartItem from './cart-item.component';
 describe('CartItem component', () => {
   beforeEach(() => {});
 
-  test('first test', () => {
+  test('CartItem component', () => {
     const item = {
       name: 'Test Name',
       price: 10,

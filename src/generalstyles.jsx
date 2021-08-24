@@ -19,10 +19,36 @@ export const StyledList = styled.ul`
   margin: 0px auto 20px;
   line-height: 30px;
   padding: 10px 20px;
-  border: 1px solid white;
+  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 10px;
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
   background-color: rgba(255, 255, 255, 0.25);
+  list-style-type: none;
+  text-align: center;
+
+  @media screen and (max-width: 900px) {
+    width: 75%;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 10px;
+    line-height: 18px;
+    width: 100%;
+    text-align: left;
+  }
+`;
+
+export const StyledError = styled.ul`
+  width: 50%;
+  font-size: 18px;
+  color: white;
+  margin: 0px auto 20px;
+  line-height: 30px;
+  padding: 10px 20px;
+  border: 1px solid rgba(255, 0, 0, 0.25);
+  border-radius: 10px;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
+  background-color: rgba(255, 0, 0, 0.25);
   list-style-type: none;
   text-align: center;
 
