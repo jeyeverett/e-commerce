@@ -8,6 +8,13 @@ export const CheckoutContainer = styled.section`
   align-items: center;
   margin: 50px auto 0;
   color: white;
+  @media screen and (max-width: 1200px) {
+    width: 75%;
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 85%;
+  }
   @media screen and (max-width: 600px) {
     width: 95%;
   }
@@ -40,7 +47,7 @@ export const CheckoutHeader = styled.div`
 export const CheckoutTotal = styled.div`
   margin-top: 30px;
   margin-left: auto;
-  font-size: 36px;
+  font-size: 30px;
   margin-bottom: 20px;
   color: white;
   @media screen and (max-width: 600px) {

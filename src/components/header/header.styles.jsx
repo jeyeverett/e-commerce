@@ -13,6 +13,9 @@ export const HeaderContainer = styled.header`
     padding: 10px;
     margin-bottom: 20px;
   }
+  @media screen and (max-width: 400px) {
+    padding: 10px 0;
+  }
 `;
 
 export const StyledBrand = styled.h1`
@@ -39,6 +42,13 @@ export const LogoContainer = styled(Link)`
     height: 40px;
     padding-bottom: 5px;
   }
+
+  @media screen and (max-width: 800px) {
+    svg {
+      width: 30px;
+    }
+    height: 30px;
+  }
 `;
 
 export const OptionsContainer = styled.div`
@@ -50,6 +60,10 @@ export const OptionsContainer = styled.div`
   font-family: 'Indie Flower', sans-serif;
   @media screen and (max-width: 800px) {
     width: 80%;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 100%;
   }
 `;
 
@@ -70,8 +84,9 @@ export const OptionLink = styled(Link)`
   @media screen and (max-width: 600px) {
     padding: 5px 10px;
   }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 450px) {
     font-size: 14px;
+
     padding: 5px 5px;
   }
 `;

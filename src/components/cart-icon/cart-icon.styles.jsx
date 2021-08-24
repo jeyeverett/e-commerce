@@ -11,6 +11,10 @@ export const CartIconContainer = styled.div`
   justify-content: center;
   cursor: pointer;
   padding-left: 10px;
+
+  @media screen and (max-width: 400px) {
+    padding: 0;
+  }
 `;
 
 export const ShoppingIconContainer = styled(ShoppingBag)`
@@ -20,6 +24,11 @@ export const ShoppingIconContainer = styled(ShoppingBag)`
   @media screen and (max-width: 600px) {
     width: 35px;
     height: 35px;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 30px;
+    height: 30px;
   }
 `;
 

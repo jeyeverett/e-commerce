@@ -3,9 +3,10 @@ import { withRouter } from 'react-router-dom';
 
 import {
   CollectionPreviewContainer,
-  CollectionTitle,
   CollectionPreviewItems,
 } from './collection-preview.styles';
+
+import { CollectionTitle } from '../../generalstyles';
 
 import CollectionItem from '../collection-item/collection-item.component';
 

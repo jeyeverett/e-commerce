@@ -27,6 +27,7 @@ export const ItemDescriptionContainer = styled.p`
   font-size: 12px;
   line-height: 20px;
   margin-top: 20px;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
 
   ${CollectionItemContainer}:hover & {
     opacity: 1;
@@ -51,6 +52,7 @@ export const CollectionImage = styled.img`
   transition: all 0.2s;
   background-image: url(${getImageUrl});
   border-radius: 20px;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
 
   ${CollectionItemContainer}:hover & {
     opacity: 0.8;
@@ -72,6 +74,8 @@ export const ItemFooterContainer = styled.div`
   color: rgba(0, 0, 0, 0.6);
   padding: 10px 20px;
   border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
 
   @media screen and (max-width: 800px) {
     margin-bottom: 40px;

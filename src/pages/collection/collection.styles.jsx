@@ -4,21 +4,6 @@ export const CollectionPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
-
-  .title {
-    font-size: 52px;
-    letter-spacing: 6px;
-    font-family: 'Indie Flower', sans-serif;
-    text-align: center;
-    margin: 15px auto 50px;
-    padding-bottom: 5px;
-    width: min-content;
-    color: white;
-
-    @media screen and (max-width: 600px) {
-      font-size: 30px;
-    }
-  }
 `;
 
 export const CollectionContainer = styled.section`

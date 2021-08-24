@@ -5,35 +5,11 @@ export const AboutPageContainer = styled.section`
   flex-direction: column;
   align-items: center;
   padding: 20px 80px;
+  @media screen and (max-width: 1000px) {
+    padding: 10px 20px;
+  }
   @media screen and (max-width: 700px) {
     padding: 10px;
-  }
-`;
-
-export const StyledTitle = styled.h1`
-  font-size: 40px;
-  color: white;
-  font-family: 'Indie Flower', sans-serif;
-
-  @media screen and (max-width: 600px) {
-    font-size: 26px;
-    margin-bottom: 0;
-  }
-`;
-
-export const AboutImageContainer = styled.div`
-  width: 408px;
-  height: 611px;
-  background-image: url('https://res.cloudinary.com/dnpfrwpiq/image/upload/v1628892351/carrotcart/carrotbunch_oj4n7k.png');
-  filter: opacity(0.9);
-
-  @media screen and (max-width: 1250px) {
-    transform: rotate(-90deg);
-    margin-top: -100px;
-  }
-
-  @media screen and (max-width: 600px) {
-    display: none;
   }
 `;
 
@@ -61,9 +37,14 @@ export const AboutInfoContainer = styled.article`
     height: 250px;
     width: auto;
     border-radius: 10px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
+
+    @media screen and (max-width: 600px) {
+      height: 200px;
+    }
 
     @media screen and (max-width: 400px) {
-      height: 200px;
+      height: 150px;
     }
   }
 
@@ -83,6 +64,13 @@ export const AboutText = styled.div`
   height: 250px;
   line-height: 20px;
   color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
+
+  @media screen and (max-width: 600px) {
+    padding: 10px 20px;
+    font-size: 10px;
+  }
 
   .title {
     font-family: 'Indie Flower', sans-serif;
@@ -90,5 +78,9 @@ export const AboutText = styled.div`
     margin: 15px 0;
     color: white;
     font-weight: normal;
+
+    @media screen and (max-width: 600px) {
+      font-size: 18px;
+    }
   }
 `;

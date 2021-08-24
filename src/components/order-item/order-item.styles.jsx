@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const OrderItemsContainer = styled.table`
+export const OrderItemsContainer = styled.section`
   width: 75%;
   border: 1px solid white;
   padding: 20px 40px;
@@ -14,7 +14,7 @@ export const OrderItemsContainer = styled.table`
   }
 `;
 
-export const OrderItemContainer = styled.td`
+export const OrderItemContainer = styled.p`
   width: 100%;
   display: grid;
   align-items: center;

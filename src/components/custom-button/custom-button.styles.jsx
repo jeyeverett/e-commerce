@@ -29,13 +29,13 @@ export const GoogleSignInStyles = css`
 `;
 
 const buttonStyles = css`
-  background-color: rgba(72, 133, 168, 0.7);
+  background-color: rgba(72, 133, 168, 0.8);
   color: white;
   transition: all 0.2s;
   margin-right: 10px;
 
   &:hover {
-    background-color: rgba(72, 133, 168, 0.9);
+    background-color: rgba(72, 133, 168, 1);
   }
 `;
 
@@ -55,6 +55,7 @@ export const CustomButtonContainer = styled.button`
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
 
   ${getButtonStyles}
 

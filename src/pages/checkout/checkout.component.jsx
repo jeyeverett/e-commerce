@@ -8,7 +8,7 @@ import {
   TestWarning,
 } from './checkout.styles';
 
-import { StyledH1 } from '../generalstyles';
+import { StyledH1, StyledList } from '../../generalstyles';
 
 //Redux
 import { connect } from 'react-redux';
@@ -25,14 +25,24 @@ import StripeCheckoutButton from '../../components/stripe-button/stripe-button.c
 const CheckoutPage = ({ cartItems, cartTotal }) => (
   <CheckoutContainer>
     <StyledH1>Checkout</StyledH1>
-    {cartItems.length && (
-      <CheckoutHeader>
-        <span>Product</span>
-        <span>&nbsp;</span>
-        <span>Quantity</span>
-        <span>Price</span>
-        <span>Remove</span>
-      </CheckoutHeader>
+    {cartItems.length ? (
+      <>
+        <StyledList style={{ width: '100%' }}>
+          <li>Confirm your check out items below</li>
+          <li>
+            Click "Pay Now" to provide your payment and shipping information
+          </li>
+        </StyledList>
+        <CheckoutHeader>
+          <span>Product</span>
+          <span>&nbsp;</span>
+          <span>Quantity</span>
+          <span>Price</span>
+          <span>Remove</span>
+        </CheckoutHeader>
+      </>
+    ) : (
+      ''
     )}
     {!cartItems.length ? (
       <EmptyCheckout>Your cart is empty</EmptyCheckout>
@@ -42,7 +52,7 @@ const CheckoutPage = ({ cartItems, cartTotal }) => (
           <CheckoutItem key={item.id} item={item} />
         ))}
         <CheckoutTotal>
-          <span>TOTAL: ${cartTotal}</span>
+          <span>Total: ${cartTotal}</span>
         </CheckoutTotal>
         <StripeCheckoutButton price={cartTotal} cartItems={cartItems} />
         <TestWarning>

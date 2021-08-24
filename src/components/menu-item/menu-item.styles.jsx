@@ -21,6 +21,7 @@ export const MenuItemContainer = styled.div`
   position: relative;
   overflow: hidden;
   border-radius: 20px;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
 
   &:hover {
     cursor: pointer;
@@ -39,6 +40,7 @@ export const BackgroundImageContainer = styled.div`
   background-size: cover;
   position: absolute;
   z-index: -10;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
 
   ${MenuItemContainer}:hover & {
     transform: scale(1.1);
@@ -54,6 +56,9 @@ export const MenuItemContent = styled.div`
   align-items: center;
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid white;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
+
   border-radius: 10px;
   transition: all 0.3s;
 
@@ -62,7 +67,7 @@ export const MenuItemContent = styled.div`
     font-weight: bold;
     margin: 0;
     font-size: 30px;
-    color: #696430;
+    color: rgba(0, 0, 0, 0.6);
 
     @media screen and (max-width: 600px) {
       font-size: 24px;
@@ -73,7 +78,7 @@ export const MenuItemContent = styled.div`
   .subtitle {
     font-weight: lighter;
     font-size: 16px;
-    color: #696430;
+    color: rgba(0, 0, 0, 0.6);
   }
 
   &:hover {

@@ -42,7 +42,7 @@ const CheckoutItem = ({ item, dispatch }) => (
       onClick={() => dispatch(clearItemFromCheckout(item))}
       title="remove item"
     >
-      {'X'}
+      {'x'}
     </CheckoutRemoveButton>
   </CheckoutItemContainer>
 );

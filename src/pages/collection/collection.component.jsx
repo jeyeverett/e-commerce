@@ -13,12 +13,14 @@ import {
   NoCollectionContainer,
 } from './collection.styles';
 
+import { StyledH1 } from '../../generalstyles';
+
 const CollectionPage = ({ collection }) => {
   console.log(collection);
   if (collection) {
     return (
       <CollectionPageContainer>
-        <h1 className="title">{collection.title.toUpperCase()}</h1>
+        <StyledH1>{collection.title.toUpperCase()}</StyledH1>
         <CollectionContainer>
           {collection.items.map((item) => (
             <CollectionItem

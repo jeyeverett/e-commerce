@@ -35,7 +35,7 @@ export const CartItemsContainer = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(97, 75, 44, 0.7);
+    background-color: rgba(72, 133, 168, 0.7);
     border-radius: 20px;
   }
 `;
@@ -43,5 +43,5 @@ export const CartItemsContainer = styled.div`
 export const CartEmptyContainer = styled.span`
   margin: auto 0;
   font-size: 18px;
-  color: white;
+  color: rgba(72, 133, 168, 1);
 `;

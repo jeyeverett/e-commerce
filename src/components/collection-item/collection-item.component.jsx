@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-
-import ToggleSwitch from '../../components/toggle-switch/toggle-switch.component';
+import React from 'react';
 
 //Redux
 import { connect } from 'react-redux';
@@ -14,7 +12,6 @@ import {
   ItemDescriptionContainer,
   StyledPriceContainer,
   StyledNameContainer,
-  ToggleContainer,
 } from './collection-item.styles';
 
 const CollectionItem = ({ item, addItem }) => {

@@ -1,5 +1,6 @@
 import React from 'react';
-import { DirectoryContainer, StyledTitle } from './directory.styles';
+import { DirectoryContainer } from './directory.styles';
+import { StyledH1 } from '../../generalstyles';
 
 //Redux
 import { connect } from 'react-redux';
@@ -10,9 +11,9 @@ import MenuItem from '../../components/menu-item/menu-item.component.jsx';
 
 const Directory = ({ sections }) => (
   <>
-    <StyledTitle>
-      Sustainably produced local produce - and other natural stuff!
-    </StyledTitle>
+    <StyledH1>
+      Sustainably grown local produce - and other natural stuff!
+    </StyledH1>
     <DirectoryContainer>
       {sections.map(({ id, ...sectionProps }) => (
         //We take id out and spread the rest of our section props instead of passing each one individually, since we want access to all of them

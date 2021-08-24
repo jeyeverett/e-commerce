@@ -2,7 +2,7 @@ import React from 'react';
 
 import OrderItem from '../../components/order-item/order-item.component';
 import { OrderPageContainer } from './orderspage.styles';
-import { StyledH1 } from '../generalstyles';
+import { StyledH1 } from '../../generalstyles';
 import Spinner from '../../components/spinner/spinner.component';
 
 // Redux

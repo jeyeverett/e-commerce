@@ -2,17 +2,16 @@ import React from 'react';
 
 import {
   AboutPageContainer,
-  StyledTitle,
-  AboutImageContainer,
   AboutInfoContainer,
   AboutContainer,
   AboutText,
 } from './about-page.styles';
+import { StyledH1 } from '../../generalstyles';
 
 const AboutPage = () => {
   return (
     <AboutPageContainer>
-      <StyledTitle>About Us</StyledTitle>
+      <StyledH1>About Us</StyledH1>
       <AboutContainer>
         <AboutInfoContainer>
           <img
@@ -28,7 +27,12 @@ const AboutPage = () => {
               cumque!
             </p>
           </AboutText>
-          <AboutText>
+
+          <AboutText
+            style={
+              window.innerWidth < 600 ? { order: 3 } : { order: 'initial ' }
+            }
+          >
             <h2 className="title">Raised from the highest quality seeds</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
@@ -40,6 +44,9 @@ const AboutPage = () => {
           <img
             src="https://res.cloudinary.com/dnpfrwpiq/image/upload/v1629129878/carrotcart/seedlings_osyzzy.jpg"
             alt="seedlings"
+            style={
+              window.innerWidth < 600 ? { order: 2 } : { order: 'initial ' }
+            }
           />
         </AboutInfoContainer>
       </AboutContainer>
