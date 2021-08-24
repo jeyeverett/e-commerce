@@ -58,7 +58,9 @@ export const OptionsContainer = styled.div`
   justify-content: flex-end;
   align-items: center;
   font-family: 'Indie Flower', sans-serif;
-  @media screen and (max-width: 800px) {
+  padding-right: 60px;
+
+  @media screen and (max-width: 1000px) {
     width: 80%;
   }
 

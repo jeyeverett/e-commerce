@@ -16,7 +16,7 @@ export const StyledList = styled.ul`
   width: 50%;
   font-size: 18px;
   color: white;
-  margin: 0px auto 50px;
+  margin: 0px auto 20px;
   line-height: 30px;
   padding: 10px 20px;
   border: 1px solid white;
@@ -26,13 +26,12 @@ export const StyledList = styled.ul`
   list-style-type: none;
   text-align: center;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 900px) {
     width: 75%;
   }
 
   @media screen and (max-width: 600px) {
     font-size: 10px;
-    margin-bottom: 20px;
     line-height: 18px;
     width: 100%;
     text-align: left;
@@ -42,7 +41,7 @@ export const StyledList = styled.ul`
 export const CollectionTitle = styled.h2`
   font-family: 'Indie Flower', sans-serif;
   letter-spacing: 3px;
-  font-size: 30px;
+  font-size: ${(props) => (props.menu ? '16px' : '30px')};
   width: min-content;
   margin: 10px 20px;
   padding: 10px 20px;
@@ -58,11 +57,35 @@ export const CollectionTitle = styled.h2`
     background-color: rgba(255, 255, 255, 0.05);
   }
 
+  @media screen and (max-width: 800px) {
+    font-size: ${(props) => (props.menu ? '14px' : '30px')};
+    margin: ${(props) => (props.menu ? '0' : '10px 20px')};
+  }
+
   @media screen and (max-width: 600px) {
-    margin-top: 0;
-    font-size: 16px;
+    font-size: ${(props) => (props.menu ? '10px' : '16px')};
+    margin: ${(props) => (props.menu ? '0px 5px' : '10px 20px')};
+    padding: ${(props) => (props.menu ? '5px' : '10px 20px')};
+
     width: 100%;
     align-self: center;
     text-align: center;
+  }
+
+  @media screen and (max-width: 400px) {
+    font-size: ${(props) => (props.menu ? '8px' : '16px')};
+    margin: ${(props) => (props.menu ? '0px 3px' : '10px 20px')};
+  }
+`;
+
+export const StyledMenu = styled.nav`
+  width: min-content;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
   }
 `;

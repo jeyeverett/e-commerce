@@ -37,6 +37,7 @@ export const CheckoutHeader = styled.div`
   font-size: 20px;
   font-weight: bolder;
   color: white;
+  margin-top: 20px;
 
   @media screen and (max-width: 600px) {
     font-size: 10px;

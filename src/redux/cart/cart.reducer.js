@@ -9,6 +9,7 @@ const INITIAL_STATE = {
   hidden: true,
   cartItems: [],
   error: null,
+  isFetching: true,
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
@@ -42,11 +43,13 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         error: null,
+        isFetching: false,
       };
     case CartActionTypes.FETCH_CART_FAILURE:
       return {
         ...state,
         error: action.payload,
+        isFetching: false,
       };
     default:
       return state;

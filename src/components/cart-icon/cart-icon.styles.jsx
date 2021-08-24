@@ -5,15 +5,24 @@ import { ReactComponent as ShoppingBag } from '../../assets/shopping-bag.svg';
 export const CartIconContainer = styled.div`
   width: 60px;
   height: 60px;
-  position: relative;
+  position: fixed;
+  top: 30px;
+  right: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   padding-left: 10px;
+  z-index: 1000;
 
-  @media screen and (max-width: 400px) {
-    padding: 0;
+  @media screen and (max-width: 800px) {
+    top: 15px;
+    right: 20px;
+  }
+
+  @media screen and (max-width: 600px) {
+    top: 20px;
+    right: 20px;
   }
 `;
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const CartDropdownContainer = styled.div`
-  position: absolute;
+  position: fixed;
   width: 240px;
   height: 340px;
   display: flex;
@@ -14,7 +14,7 @@ export const CartDropdownContainer = styled.div`
 
   top: 90px;
   right: 80px;
-  z-index: 5;
+  z-index: 1000;
 
   @media screen and (max-width: 600px) {
     right: 30px;
